@@ -1,0 +1,1299 @@
+openapi: 3.0.1
+info:
+  title: Office Manager's API
+  version: v1
+paths:
+  /v1/cases:search:
+    get:
+      tags:
+        - Cases
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CaseRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CaseRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CaseRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CaseResponse'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CaseResponse'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CaseResponse'
+  /v1/cases/{caseId}:
+    get:
+      tags:
+        - Cases
+      parameters:
+        - name: caseId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/CaseResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CaseResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/CaseResponse'
+  /v1/cases:
+    get:
+      tags:
+        - Cases
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CaseResponse'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CaseResponse'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CaseResponse'
+    post:
+      tags:
+        - Cases
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CaseRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CaseRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CaseRequest'
+      responses:
+        '200':
+          description: OK
+    put:
+      tags:
+        - Cases
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CaseRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CaseRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CaseRequest'
+      responses:
+        '200':
+          description: OK
+    delete:
+      tags:
+        - Cases
+      parameters:
+        - name: caseId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /v1/client-meetings/{clientMeetingId}:
+    get:
+      tags:
+        - ClientMeetings
+      parameters:
+        - name: clientMeetingId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ClientMeetingResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientMeetingResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ClientMeetingResponse'
+  /v1/client-meetings:
+    get:
+      tags:
+        - ClientMeetings
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClientMeetingResponse'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClientMeetingResponse'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClientMeetingResponse'
+    post:
+      tags:
+        - ClientMeetings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClientMeetingRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ClientMeetingRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ClientMeetingRequest'
+      responses:
+        '200':
+          description: OK
+    put:
+      tags:
+        - ClientMeetings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClientMeetingRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ClientMeetingRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ClientMeetingRequest'
+      responses:
+        '200':
+          description: OK
+    delete:
+      tags:
+        - ClientMeetings
+      parameters:
+        - name: clientMeetingId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /v1/client-meetings/client/{clientId}:
+    get:
+      tags:
+        - ClientMeetings
+      parameters:
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClientMeetingResponse'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClientMeetingResponse'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClientMeetingResponse'
+  /v1/clients/office/{officeId}:
+    get:
+      tags:
+        - Clients
+      parameters:
+        - name: officeId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClientResponse'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClientResponse'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClientResponse'
+  /v1/clients:paginated:
+    get:
+      tags:
+        - Clients
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClientPaginationRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ClientPaginationRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ClientPaginationRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ClientResponsePaginationResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientResponsePaginationResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ClientResponsePaginationResponse'
+  /v1/clients/{clientId}:
+    get:
+      tags:
+        - Clients
+      parameters:
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ClientResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ClientResponse'
+  /v1/clients:
+    get:
+      tags:
+        - Clients
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClientResponse'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClientResponse'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClientResponse'
+    post:
+      tags:
+        - Clients
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClientRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ClientRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ClientRequest'
+      responses:
+        '200':
+          description: OK
+    put:
+      tags:
+        - Clients
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClientRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ClientRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ClientRequest'
+      responses:
+        '200':
+          description: OK
+    delete:
+      tags:
+        - Clients
+      parameters:
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /v1/documents/case/{caseId}:
+    get:
+      tags:
+        - Documents
+      parameters:
+        - name: caseId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DocumentResponse'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DocumentResponse'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DocumentResponse'
+  /v1/documents/{documentId}:
+    get:
+      tags:
+        - Documents
+      parameters:
+        - name: documentId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/DocumentResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/DocumentResponse'
+  /v1/documents:
+    get:
+      tags:
+        - Documents
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DocumentResponse'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DocumentResponse'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DocumentResponse'
+    delete:
+      tags:
+        - Documents
+      parameters:
+        - name: documentId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /v1/documents/upload/case/{caseId}:
+    post:
+      tags:
+        - Documents
+      parameters:
+        - name: caseId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+              format: binary
+          text/json:
+            schema:
+              type: string
+              format: binary
+          application/*+json:
+            schema:
+              type: string
+              format: binary
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/DocumentResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/DocumentResponse'
+  /v1/fees/{feeId}:
+    get:
+      tags:
+        - Fees
+      parameters:
+        - name: feeId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/FeeResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeeResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/FeeResponse'
+  /v1/fees:
+    get:
+      tags:
+        - Fees
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FeeResponse'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FeeResponse'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FeeResponse'
+    post:
+      tags:
+        - Fees
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FeeRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/FeeRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/FeeRequest'
+      responses:
+        '200':
+          description: OK
+    put:
+      tags:
+        - Fees
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FeeRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/FeeRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/FeeRequest'
+      responses:
+        '200':
+          description: OK
+    delete:
+      tags:
+        - Fees
+      parameters:
+        - name: feeId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /v1/offices/{officeId}:
+    get:
+      tags:
+        - Offices
+      parameters:
+        - name: officeId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/OfficeResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OfficeResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/OfficeResponse'
+  /v1/offices:
+    get:
+      tags:
+        - Offices
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OfficeResponse'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OfficeResponse'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OfficeResponse'
+    post:
+      tags:
+        - Offices
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OfficeRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/OfficeRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/OfficeRequest'
+      responses:
+        '200':
+          description: OK
+    put:
+      tags:
+        - Offices
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OfficeRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/OfficeRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/OfficeRequest'
+      responses:
+        '200':
+          description: OK
+    delete:
+      tags:
+        - Offices
+      parameters:
+        - name: officeId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /v1/users/office/{officeId}:
+    get:
+      tags:
+        - Users
+      parameters:
+        - name: officeId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DocumentResponse'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DocumentResponse'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DocumentResponse'
+  /v1/users:paginated:
+    get:
+      tags:
+        - Users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserPaginationRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/UserPaginationRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/UserPaginationRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/UserResponsePaginationResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponsePaginationResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/UserResponsePaginationResponse'
+  /v1/users:check-email:
+    post:
+      tags:
+        - Users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+          text/json:
+            schema:
+              type: string
+          application/*+json:
+            schema:
+              type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: boolean
+            application/json:
+              schema:
+                type: boolean
+            text/json:
+              schema:
+                type: boolean
+  /v1/users:login:
+    post:
+      tags:
+        - Users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/UserRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/UserRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+  /v1/users:reset-password:
+    post:
+      tags:
+        - Users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/UserRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/UserRequest'
+      responses:
+        '200':
+          description: OK
+  /v1/users/{userId}:
+    get:
+      tags:
+        - Users
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+  /v1/users:
+    get:
+      tags:
+        - Users
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserResponse'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserResponse'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserResponse'
+    post:
+      tags:
+        - Users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/UserRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/UserRequest'
+      responses:
+        '200':
+          description: OK
+    put:
+      tags:
+        - Users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/UserRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/UserRequest'
+      responses:
+        '200':
+          description: OK
+    delete:
+      tags:
+        - Users
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+components:
+  schemas:
+    CaseRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        clientId:
+          type: string
+          format: uuid
+        status:
+          $ref: '#/components/schemas/CaseStatus'
+      additionalProperties: false
+    CaseResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        client:
+          $ref: '#/components/schemas/ClientResponse'
+        status:
+          $ref: '#/components/schemas/CaseStatus'
+        creationDate:
+          type: string
+          format: date-time
+        conclusionDate:
+          type: string
+          format: date-time
+      additionalProperties: false
+    CaseStatus:
+      enum:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+      type: integer
+      format: int32
+    ClientMeetingRequest:
+      type: object
+      properties:
+        meetingDate:
+          type: string
+          format: date-time
+        description:
+          type: string
+          nullable: true
+        clientId:
+          type: string
+          format: uuid
+      additionalProperties: false
+    ClientMeetingResponse:
+      type: object
+      additionalProperties: false
+    ClientPaginationRequest:
+      type: object
+      properties:
+        page:
+          type: integer
+          format: int32
+        size:
+          type: integer
+          format: int32
+        officeId:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        cpf:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ClientRequest:
+      type: object
+      properties:
+        cpf:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        address:
+          type: string
+          nullable: true
+        phone:
+          type: string
+          nullable: true
+        email:
+          type: string
+          nullable: true
+        officeId:
+          type: string
+          format: uuid
+      additionalProperties: false
+    ClientResponse:
+      type: object
+      properties:
+        cpf:
+          type: string
+          nullable: true
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+          readOnly: true
+        address:
+          type: string
+          nullable: true
+          readOnly: true
+        phone:
+          type: string
+          nullable: true
+          readOnly: true
+        email:
+          type: string
+          nullable: true
+          readOnly: true
+        meetings:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClientMeetingResponse'
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    ClientResponsePaginationResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClientResponse'
+          nullable: true
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClientResponse'
+          nullable: true
+        currentPage:
+          type: integer
+          format: int32
+        totalPages:
+          type: integer
+          format: int32
+        totalItems:
+          type: integer
+          format: int32
+      additionalProperties: false
+    DocumentResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        url:
+          type: string
+          nullable: true
+        uploadDate:
+          type: string
+          format: date-time
+        case:
+          $ref: '#/components/schemas/CaseResponse'
+      additionalProperties: false
+    FeeRequest:
+      type: object
+      properties:
+        caseId:
+          type: string
+          format: uuid
+        userId:
+          type: string
+          format: uuid
+        amount:
+          type: number
+          format: double
+        paymentStatus:
+          $ref: '#/components/schemas/PaymentStatus'
+      additionalProperties: false
+    FeeResponse:
+      type: object
+      properties:
+        case:
+          $ref: '#/components/schemas/CaseResponse'
+        user:
+          $ref: '#/components/schemas/UserResponse'
+        amount:
+          type: number
+          format: double
+          readOnly: true
+        paymentDate:
+          type: string
+          format: date-time
+          nullable: true
+          readOnly: true
+        paymentStatus:
+          $ref: '#/components/schemas/PaymentStatus'
+      additionalProperties: false
+    OfficeRequest:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        cnpj:
+          type: string
+          nullable: true
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRequest'
+          nullable: true
+      additionalProperties: false
+    OfficeResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+          readOnly: true
+        cnpj:
+          type: string
+          nullable: true
+          readOnly: true
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserResponse'
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    PaymentStatus:
+      enum:
+        - 1
+        - 2
+        - 4
+        - 5
+      type: integer
+      format: int32
+    UserPaginationRequest:
+      type: object
+      properties:
+        page:
+          type: integer
+          format: int32
+        size:
+          type: integer
+          format: int32
+        officeId:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        email:
+          type: string
+          nullable: true
+      additionalProperties: false
+    UserRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+          readOnly: true
+        email:
+          type: string
+          nullable: true
+          readOnly: true
+        password:
+          type: string
+          nullable: true
+          readOnly: true
+        birthDate:
+          type: string
+          format: date-time
+          readOnly: true
+        isAdmin:
+          type: boolean
+          readOnly: true
+        officeId:
+          type: string
+          format: uuid
+          readOnly: true
+      additionalProperties: false
+    UserResponse:
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+        email:
+          type: string
+          nullable: true
+        birthDate:
+          type: string
+          format: date-time
+        officeId:
+          type: string
+          format: uuid
+      additionalProperties: false
+    UserResponsePaginationResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserResponse'
+          nullable: true
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserResponse'
+          nullable: true
+        currentPage:
+          type: integer
+          format: int32
+        totalPages:
+          type: integer
+          format: int32
+        totalItems:
+          type: integer
+          format: int32
+      additionalProperties: false
